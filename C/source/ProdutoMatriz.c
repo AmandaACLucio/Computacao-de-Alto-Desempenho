@@ -62,8 +62,8 @@ void Multiplica_matriz_vetor(int tamanho)
 
     fim2 =clock();
 
-    difTempo = double(fim - inicio)/CLOCKS_PER_SEC;
-    difTempo2 = double(fim2 - inicio2)/CLOCKS_PER_SEC;
+    difTempo = ((double)(fim - inicio))/CLOCKS_PER_SEC;
+    difTempo2 = ((double)(fim2 - inicio2))/CLOCKS_PER_SEC;
 
 
 /*     //prints
