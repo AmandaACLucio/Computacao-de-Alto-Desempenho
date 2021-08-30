@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++.exe build active file",
+            "command": "C:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "source\\ProdutoMatriz.c",
+                "source\\ProdutoMatriz.h",
+                "-o",
+                "teste2.exe"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+  }
