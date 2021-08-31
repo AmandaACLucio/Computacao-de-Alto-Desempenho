@@ -13,17 +13,12 @@ inline double seconds(void){
     return ( (double) clock() ) * secs_per_tick;
 }
 
-
-inline Real SQR(const Real &x){
-    return (x*x);
-}
-
 inline Real BC(Real x, Real y){
     return (x*x - y*y);
 }
 
 struct Grid {
-    Real dx, dy;
+    Real dx, dy, nyMenos1;
     int nx, ny;
     Real **u;
     Grid(const int n_x=10, const int n_y=10);
@@ -33,8 +28,9 @@ struct Grid {
 };
 
 Grid :: Grid(const int n_x, const int n_y) : nx(n_x), ny(n_y){
-    dx = 1.0/Real(nx - 1);
-    dy = 1.0/Real(ny - 1);
+    nyMenos1 = Real(nx - 1);
+    dx = 1.0/nyMenos1;
+    dy = 1.0/nyMenos1;
     u = new Real* [nx];
 
     for (int i=0; i<nx; ++i) {
@@ -100,6 +96,8 @@ Real LaplaceSolver :: timeStep(const Real dt){
     Real dy2 = g->dy*g->dy;
     Real tmp;
     Real err = 0.0;
+    Real sumdxdy = dx2 + dy2;
+
     int nx = g->nx;
     int ny = g->ny;
     Real **u = g->u;
@@ -107,9 +105,8 @@ Real LaplaceSolver :: timeStep(const Real dt){
     for (int i=1; i<nx-1; ++i) {
         for (int j=1; j<ny-1; ++j) {
             tmp = u[i][j];
-            u[i][j] = ((u[i-1][j] + u[i+1][j])*dy2 +
-            (u[i][j-1] + u[i][j+1])*dx2)*0.5/(dx2 + dy2);
-            err += SQR(u[i][j] - tmp);
+            u[i][j] = ((u[i-1][j] + u[i+1][j])*dy2 + (u[i][j-1] + u[i][j+1])*dx2)*0.5/(sumdxdy);
+            err += (u[i][j] - tmp)*(u[i][j] - tmp);
         }
     }
     return sqrt(err);

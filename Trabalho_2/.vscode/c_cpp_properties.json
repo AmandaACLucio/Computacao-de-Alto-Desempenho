@@ -3,7 +3,7 @@
     "configurations": [
       {
             "name": "win32",
-            "includePath": ["C:\\Users\\amand\\OneDrive\\Documentos\\UFRJ\\Periodos\\Período 7\\Computação de Alto Desempenho\\Trabalho_1\\C**",
+            "includePath": ["C:\\Users\\amand\\OneDrive\\Documentos\\UFRJ\\Periodos\\Período 7\\Computação de Alto Desempenho\\Trabalho_2**",
             "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"],
             "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
             "windowsSdkVersion": "10.0.17134.0",

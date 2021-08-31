@@ -7,10 +7,10 @@
             "command": "C:\\mingw64\\bin\\g++.exe",
             "args": [
                 "-g",
-                "source\\ProdutoMatriz.c",
-                "source\\ProdutoMatriz.h",
+                "-pg",
+                "source\\Laplace.cxx",
                 "-o",
-                "teste2.exe"
+                "LaplaceExecutavel.exe"
             ],
             "problemMatcher": [
                 "$gcc"
